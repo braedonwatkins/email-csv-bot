@@ -1,9 +1,11 @@
 {
   "name": "email-csv-bot",
+  "type": "module",
   "version": "1.0.0",
   "description": "bot to send emails from csv",
   "main": "index.js",
   "scripts": {
+    "dev": "node index.js",
     "test": "test"
   },
   "repository": {
@@ -17,6 +19,7 @@
   },
   "homepage": "https://github.com/braedonwatkins/email-csv-bot#readme",
   "dependencies": {
-    "csv-parser": "^3.0.0"
+    "csv-parser": "^3.0.0",
+    "fs": "^0.0.1-security"
   }
 }
