@@ -1,4 +1,11 @@
-#ignore data
+#data
 *.csv
 
+#dont commit the world
 node_modules/*
+
+#email template
+*.html
+
+#sensitive data
+*.env
