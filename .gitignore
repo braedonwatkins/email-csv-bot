@@ -10,3 +10,6 @@ node_modules/*
 #sensitive data
 *.env
 *.json
+
+#attachments
+*.pdf 

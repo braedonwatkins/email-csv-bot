@@ -44,6 +44,14 @@ rl.question("Enter the name of the CSV file: ", (filename) => {
           to: `${receiverEmail}`,
           subject: "ASD Achievement Center- Fall 2023 Open House",
           html: templateMessage(formattedName),
+          attachments: [
+            {
+              path: "./Master Flyer.pdf",
+            },
+            {
+              path: "./Open House Flyer Fall 2023 Flyer.pdf",
+            },
+          ],
         };
 
         sendEmail(options);
