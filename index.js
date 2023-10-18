@@ -114,24 +114,37 @@ const templateMessage = (formattedName) => {
         Don't miss this incredible opportunity to learn more about our ASD Adult
         Programs. We look forward to welcoming you!
   
-        <br />You can RSVP here: https://ASDFallOpenHouse2023.eventbrite.com
+        <br />You can RSVP here: <a href="https://ASDFallOpenHouse2023.eventbrite.com">https://ASDFallOpenHouse2023.eventbrite.com<a>
   
         <br />If you aren't able to attend the Open House and would like to learn
         more, please reach out to us at <strong>407-960-1840</strong> or
-        <u>click here</u> to schedule a Meet n' Greet with us! We'll meet with you
+        <a href="https://asdachievement.org/register/">click herem<a> to schedule a Meet n' Greet with us! We'll meet with you
         in-person at our center in Altamonte Springs (or on Zoom) to go over the
         programs we offer and answer any questions you may have. Anyone who
         registers for a Meet n' Greet by November 2nd will receive a coupon for
-        20% off the price of our Spring 2024 programs! If you have any questions,
-        please don't hesitate to reach out. Achieve on!
+        20% off the price of our Spring 2024 programs! 
+        
+        <br/>If you have any questions, please don't hesitate to reach out. Achieve on!
   
         <br />
+
+        _____________________
+
+        <br/>
   
         <br />${senderName} | Administration <br />ASD Adult Achievement
         Center, Inc. <br />222 S Westmonte Dr, Suite 230, Altamonte Springs, 32714
-        <br />Phone: (407) 960-1840 <br />Website | LinkTree | Facebook | Twitter
-        | LinkedIn | Instagram Video highlighting our programs, testimonials,
-        achievements, and future developments!
+        <br />Phone: (407) 960-1840 <br />
+        <a href="https://nam02.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.asdachievement.org%2F&data=05%7C01%7Cem469206%40ucf.edu%7C2d28d9f536a94b6de71408dbafc7ab64%7Cbb932f15ef3842ba91fcf3c59d5dd1f1%7C0%7C0%7C638297044331289645%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=NS%2BskLVtuCjryjycLu%2FXn5p8fAI6AMGzZUVLIU61Isw%3D&reserved=0"Website</a>
+        | <a href="https://nam02.safelinks.protection.outlook.com/?url=https%3A%2F%2Flinktr.ee%2Fasdadultachievement&data=05%7C01%7Cem469206%40ucf.edu%7C2d28d9f536a94b6de71408dbafc7ab64%7Cbb932f15ef3842ba91fcf3c59d5dd1f1%7C0%7C0%7C638297044331289645%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=kufoUH0WOGGjx0RwNxy8decm1K%2FmQYJUhv6NSPWfBG8%3D&reserved=0">LinkTree</a> 
+        | <a href="https://nam02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.facebook.com%2FAsdAchievement%2F&data=05%7C01%7Cem469206%40ucf.edu%7C2d28d9f536a94b6de71408dbafc7ab64%7Cbb932f15ef3842ba91fcf3c59d5dd1f1%7C0%7C0%7C638297044331289645%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=6NzXPXVyNzgykwggMSqU%2BIKOZ8EwgOcUYSWsbfTAslw%3D&reserved=0"Facebook</a> 
+        | <a href="https://nam02.safelinks.protection.outlook.com/?url=https%3A%2F%2Ftwitter.com%2FAsdAchievement&data=05%7C01%7Cem469206%40ucf.edu%7C2d28d9f536a94b6de71408dbafc7ab64%7Cbb932f15ef3842ba91fcf3c59d5dd1f1%7C0%7C0%7C638297044331289645%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=fvnUVQs%2BW0BM8rS4ys7X0l71Mpx%2FAwZhWCc2Eu94HWA%3D&reserved=0">Twitter</a>
+        | <a href="https://nam02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fcenter-for-autistic-achievement-inc%2F&data=05%7C01%7Cem469206%40ucf.edu%7C2d28d9f536a94b6de71408dbafc7ab64%7Cbb932f15ef3842ba91fcf3c59d5dd1f1%7C0%7C0%7C638297044331289645%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=zCbNor%2B%2BZ6F66RKhKaldu2CUEHtR6xvJaKxwtV5teQc%3D&reserved=0"LinkedIn</a> 
+        | <a href="https://nam02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.instagram.com%2Fasdachievement%2F%3Fhl%3Den&data=05%7C01%7Cem469206%40ucf.edu%7C2d28d9f536a94b6de71408dbafc7ab64%7Cbb932f15ef3842ba91fcf3c59d5dd1f1%7C0%7C0%7C638297044331289645%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=%2B7b05DK3DgcaVaRKCJea6DLlb5%2Fqqx%2FYDeLxX%2BD8GiI%3D&reserved=0"Instagram</a> 
+        
+        <br/>
+        <a href="https://nam02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DcBk2t1x5aeo&data=05%7C01%7Cem469206%40ucf.edu%7C2d28d9f536a94b6de71408dbafc7ab64%7Cbb932f15ef3842ba91fcf3c59d5dd1f1%7C0%7C0%7C638297044331289645%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=7x3ats7SVm024qBgZQaaVq5zQWm9kGV%2BBETeF%2BeMuiA%3D&reserved=0"Video</a> 
+        highlighting our programs, testimonials, achievements, and future developments!
       </div>
   
       <!-- FIXME: ADD LINKS & ATTACHMENTS -->
