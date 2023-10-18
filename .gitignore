@@ -1,2 +1,4 @@
 #ignore data
 *.csv
+
+node_modules/*

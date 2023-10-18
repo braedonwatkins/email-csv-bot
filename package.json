@@ -1,0 +1,22 @@
+{
+  "name": "email-csv-bot",
+  "version": "1.0.0",
+  "description": "bot to send emails from csv",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/braedonwatkins/email-csv-bot.git"
+  },
+  "author": "braedon watkins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/braedonwatkins/email-csv-bot/issues"
+  },
+  "homepage": "https://github.com/braedonwatkins/email-csv-bot#readme",
+  "dependencies": {
+    "csv-parser": "^3.0.0"
+  }
+}
