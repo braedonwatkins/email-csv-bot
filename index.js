@@ -1,6 +1,34 @@
 import { createInterface } from "readline";
 import { createReadStream } from "fs";
 import csv from "csv-parser";
+import nodemailer from "nodemailer";
+import { JWT } from "google-auth-library";
+// const { google } = pkg;
+// console.log(google);
+// console.log(pkg);
+
+import dotenv from "dotenv";
+dotenv.config();
+
+const { senderEmail, senderName, pass, client_email, private_key } =
+  process.env;
+
+const client = new JWT(
+  client_email,
+  null,
+  private_key,
+  ["https://mail.google.com/"],
+  null
+);
+
+const gmail = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    type: "OAuth2",
+    user: senderEmail,
+    accessToken: client.access_token,
+  },
+});
 
 const rl = createInterface({
   input: process.stdin,
@@ -17,6 +45,28 @@ rl.question("Enter the name of the CSV file: ", (filename) => {
     })
     .on("end", () => {
       console.log("CSV file successfully processed", emailData);
+
+      // Loop over the email data and send emails
+      for (const {
+        "First Name": firstName,
+        "Last Name": lastName,
+        "Email Address": emailAddress,
+      } of emailData) {
+        const mailOptions = {
+          from: `${senderEmail}`,
+          to: emailAddress,
+          subject: `Hello ${firstName} ${lastName}`,
+          text: `Dear ${firstName} ${lastName},\n\nThis is a test email.\n\nBest regards,\n${senderName}`,
+        };
+
+        gmail.sendMail(mailOptions, (error, info) => {
+          if (error) {
+            console.log(`Error sending email to ${emailAddress}: `, error);
+          } else {
+            console.log(`Email sent to ${emailAddress}: ${info.response}`);
+          }
+        });
+      }
     })
     .on("error", () => {
       console.log("Error reading the file. Please make sure the file exists.");
