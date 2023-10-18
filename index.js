@@ -2,33 +2,35 @@ import { createInterface } from "readline";
 import { createReadStream } from "fs";
 import csv from "csv-parser";
 import nodemailer from "nodemailer";
-import { JWT } from "google-auth-library";
-// const { google } = pkg;
-// console.log(google);
-// console.log(pkg);
+import { google } from "googleapis";
 
 import dotenv from "dotenv";
 dotenv.config();
 
-const { senderEmail, senderName, pass, client_email, private_key } =
-  process.env;
+const { senderEmail, senderName, pass, client_id, private_key } = process.env;
 
-const client = new JWT(
-  client_email,
-  null,
-  private_key,
-  ["https://mail.google.com/"],
-  null
-);
+console.log(senderEmail);
+console.log(pass);
 
 const gmail = nodemailer.createTransport({
   service: "gmail",
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
   auth: {
-    type: "OAuth2",
     user: senderEmail,
-    accessToken: client.access_token,
+    pass: pass,
   },
 });
+
+const SENDMAIL = async (mailDetails, callback) => {
+  try {
+    const info = await gmail.sendMail(mailDetails);
+    callback(info);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 const rl = createInterface({
   input: process.stdin,
