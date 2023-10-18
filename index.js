@@ -110,13 +110,14 @@ const templateMessage = (formattedName) => {
     <head>
       <title>Your Email Subject Here</title>
     </head>
-    <body style="font-family: Georgia, sans-serif; margin: 0; padding: 20px; color: black; font-size: 14px">
+    <body style="font-family: Georgia, sans-serif; margin: 0; padding: 20px; color: black; font-size: 15px">
   
       <!-- Body -->
       <div style="padding: 20px">
         Good morning${formattedName}
         
-        <br/>We welcome you to join us for our ASD Adult Programs'
+        <br/><br/>
+        We welcome you to join us for our ASD Adult Programs'
         Open House on <strong>Thursday, November 2, 2023</strong> from
         <strong>4:00pm - 6:00pm</strong>! This exciting event is your chance to
         explore our unique programs designed specifically for adults, including
@@ -164,17 +165,18 @@ const templateMessage = (formattedName) => {
         <div>
         <span style="font-family: 'Garamond', 'Times New Roman', Times, serif; font-size: 20px; font-weight: bold">${senderName}</span>
         | <strong>Administration</strong> <br />
-        ASD Adult Achievement
+        ASD Adult Achievement Center, Inc. 
         </div>
 
-        Center, Inc. <br />222 S Westmonte Dr, Suite 230, Altamonte Springs, 32714
+        <br />222 S Westmonte Dr, Suite 230, Altamonte Springs, 32714
+
         <br />Phone: (407) 960-1840 <br />
-        <a href="https://asdachievement.org/">Website</a>
-        | <a href="https://linktr.ee/asdadultachievement">LinkTree</a> 
-        | <a href="https://www.facebook.com/AsdAchievement/">Facebook</a> 
-        | <a href="https://twitter.com/AsdAchievement">Twitter</a>
-        | <a href="https://www.linkedin.com/company/center-for-autistic-achievement-inc/">LinkedIn</a> 
-        | <a href="https://www.instagram.com/asdachievement/?hl=en"Instagram</a> 
+        <strong><a href="https://asdachievement.org/">Website</a></strong>
+        | <strong><a href="https://linktr.ee/asdadultachievement">LinkTree</a></strong> 
+        | <strong><a href="https://www.facebook.com/AsdAchievement/">Facebook</a></strong>
+        | <strong><a href="https://twitter.com/AsdAchievement">Twitter</a></strong>
+        | <strong><a href="https://www.linkedin.com/company/center-for-autistic-achievement-inc/">LinkedIn</a></strong>
+        | <strong><a href="https://www.instagram.com/asdachievement/?hl=en">Instagram</a></strong>
         
         <br/>
         <a href="https://www.youtube.com/watch?v=cBk2t1x5aeo">Video</a> 
