@@ -2,12 +2,29 @@ import { createInterface } from "readline";
 import { createReadStream } from "fs";
 import csv from "csv-parser";
 import nodemailer from "nodemailer";
+import fs from "fs";
 
 import dotenv from "dotenv";
 dotenv.config();
 
 const { senderEmail, senderName, pass, appPass, client_id, private_key } =
   process.env;
+
+// Read the file once and cache it
+let masterFlyer;
+let openHouseFlyer;
+fs.promises
+  .readFile("./master-flyer.pdf")
+  .then((data) => {
+    masterFlyer = data;
+  })
+  .catch(console.error);
+fs.promises
+  .readFile("./open-house.pdf")
+  .then((data) => {
+    openHouseFlyer = data;
+  })
+  .catch(console.error);
 
 const rl = createInterface({
   input: process.stdin,
@@ -46,10 +63,12 @@ rl.question("Enter the name of the CSV file: ", (filename) => {
           html: templateMessage(formattedName),
           attachments: [
             {
-              path: "./Master Flyer.pdf",
+              filename: "master-flyer.pdf",
+              content: masterFlyer,
             },
             {
-              path: "./Open House Flyer Fall 2023 Flyer.pdf",
+              filename: "open-house.pdf",
+              content: openHouseFlyer,
             },
           ],
         };
