@@ -31,9 +31,8 @@ const rl = createInterface({
   output: process.stdout,
 });
 
+const emailData = [];
 rl.question("Enter the name of the CSV file: ", (filename) => {
-  const emailData = [];
-
   createReadStream(`./${filename}.csv`)
     .pipe(csv())
     .on("data", (row) => {
@@ -41,40 +40,7 @@ rl.question("Enter the name of the CSV file: ", (filename) => {
     })
     .on("end", () => {
       console.log("CSV file successfully processed", emailData);
-
-      // Loop over the email data and send emails
-      for (const {
-        "First Name": firstName,
-        "Last Name": lastName,
-        "Email Address": receiverEmail,
-      } of emailData) {
-        let formattedName = ",";
-        if (firstName && lastName) {
-          formattedName = ` ${firstName} ${lastName},`;
-        } else if (firstName) {
-          formattedName = ` ${firstName},`;
-        } else if (lastName) {
-          formattedName = ` ${lastName} household,`;
-        }
-        const options = {
-          from: `${senderEmail}`,
-          to: `${receiverEmail}`,
-          subject: "ASD Achievement Center- Fall 2023 Open House",
-          html: templateMessage(formattedName),
-          attachments: [
-            {
-              filename: "master-flyer.pdf",
-              content: masterFlyer,
-            },
-            {
-              filename: "open-house.pdf",
-              content: openHouseFlyer,
-            },
-          ],
-        };
-
-        sendEmail(options);
-      }
+      loopEmails();
     })
     .on("error", () => {
       console.log("Error reading the file. Please make sure the file exists.");
@@ -82,6 +48,56 @@ rl.question("Enter the name of the CSV file: ", (filename) => {
 
   rl.close();
 });
+
+const loopEmails = async () => {
+  let counter = 1;
+  const delay = 1000;
+
+  // Loop over the email data and send emails
+  for (const {
+    "First Name": firstName,
+    "Last Name": lastName,
+    "Email Address": receiverEmail,
+  } of emailData) {
+    if (counter >= 350) {
+      console.log("Reached email limit for the day. Exiting...");
+      break;
+    }
+
+    let formattedName = ",";
+    if (firstName && lastName) {
+      formattedName = ` ${firstName} ${lastName},`;
+    } else if (firstName) {
+      formattedName = ` ${firstName},`;
+    } else if (lastName) {
+      formattedName = ` ${lastName} household,`;
+    }
+    const options = {
+      from: `${senderEmail}`,
+      to: `${receiverEmail}`,
+      subject: "ASD Achievement Center- Fall 2023 Open House",
+      html: templateMessage(formattedName),
+      attachments: [
+        {
+          filename: "master-flyer.pdf",
+          content: masterFlyer,
+        },
+        {
+          filename: "open-house.pdf",
+          content: openHouseFlyer,
+        },
+      ],
+    };
+
+    await sendEmail(options);
+    await fs.promises.appendFile("emailLog.txt", `${receiverEmail}\n`);
+
+    console.log(`email counter ${counter} / 350`);
+    counter++;
+
+    await new Promise((resolve) => setTimeout(resolve, delay));
+  }
+};
 
 const gmail = nodemailer.createTransport({
   service: "gmail",
@@ -97,6 +113,7 @@ const gmail = nodemailer.createTransport({
 const sendEmail = async (mailDetails) => {
   try {
     const info = await gmail.sendMail(mailDetails);
+
     console.log("Email sent successfully");
     console.log("MESSAGE ID: ", info.messageId);
   } catch (error) {
